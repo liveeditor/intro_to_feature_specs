@@ -1,0 +1,24 @@
+<h1>Products</h1>
+ 
+<p><%= link_to 'New Product', new_admin_product_path %></p>
+ 
+<% if @products.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Shipping</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product.title %></td>
+          <td><%= number_to_currency product.price %></td>
+          <td><%= number_to_currency product.shipping_price %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
